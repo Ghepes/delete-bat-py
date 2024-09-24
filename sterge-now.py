@@ -28,7 +28,7 @@ def delete_folders():
                 except Exception as e:
                     print(f"Could not delete the folder {item_path}. Eroare: {e}")
 
-# Rulare infinită la interval de 1 oră
+# Infinite run at 300 seconds interval
 while True:
     delete_folders()
     print("I wait 300s to run again.")
