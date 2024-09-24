@@ -3,11 +3,11 @@ import time
 import shutil
 import stat
 
-# Specifică calea relativă a directorului curent
-folder_path = "."  # Sau calea absolută
+# Specifies the relative path of the current directory
+folder_path = "."  # Or the absolute path
 
-# Specifică perioada în secunde pentru a considera folderele ca fiind noi (de exemplu, 1 zi = 86400 secunde)
-time_period = 300  # 3600 = 1 zi
+# Specifies the period in seconds to consider folders as new (eg 1 day = 86400 seconds)
+time_period = 300  # 3600 = 1 hour
 
 # Funcție pentru a elimina atributul "Read-Only"
 def remove_readonly(func, path, _):
@@ -24,12 +24,12 @@ def delete_folders():
             if (current_time - folder_creation_time) < time_period:
                 try:
                     shutil.rmtree(item_path, onerror=remove_readonly)
-                    print(f"S-a șters folderul: {item_path}")
+                    print(f"Folder deleted: {item_path}")
                 except Exception as e:
-                    print(f"Nu s-a putut șterge folderul {item_path}. Eroare: {e}")
+                    print(f"Could not delete the folder {item_path}. Eroare: {e}")
 
 # Rulare infinită la interval de 1 oră
 while True:
     delete_folders()
-    print("Aștept 300 s pentru a rula din nou.")
-    time.sleep(300)  # Așteaptă 1 oră (3600 secunde)
+    print("I wait 300s to run again.")
+    time.sleep(300)  # 1 oră (3600 seconds)
