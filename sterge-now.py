@@ -32,4 +32,4 @@ def delete_folders():
 while True:
     delete_folders()
     print("I wait 300s to run again.")
-    time.sleep(300)  # 1 oră (3600 seconds)
+    time.sleep(300)  # 1 hour (3600 seconds)
